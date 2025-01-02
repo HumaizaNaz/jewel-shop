@@ -22,14 +22,14 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-blue-800 to-black text-white py-12 px-6">
+    <section className="bg-white  text-orange-950 py-12 px-6">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-6">Get in Touch with Us</h1>
-        <p className="text-lg mb-8">Please fill out the form below, and we will get back to you as soon as possible.</p>
+        <p className="text-lg mb-8 text-orange-800">Please fill out the form below, and we will get back to you as soon as possible.</p>
 
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white bg-opacity-20 p-8 rounded-lg shadow-xl mb-8">
+        <form onSubmit={handleSubmit} className="max-w-lg mx-auto  bg-gradient-to-r from-orange-800 to-orange-950 bg-opacity-20 p-8 rounded-lg shadow-xl mb-8">
           <div className="mb-6">
-            <label htmlFor="name" className="block text-sm font-semibold mb-2">Full Name</label>
+            <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">Full Name</label>
             <input
               type="text"
               id="name"
@@ -37,12 +37,12 @@ const ContactUs = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full  px-4 py-2 bg-white border border-orange-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-semibold mb-2">Email Address</label>
+            <label htmlFor="email" className="block text-sm text-white font-semibold mb-2">Email Address</label>
             <input
               type="email"
               id="email"
@@ -50,31 +50,31 @@ const ContactUs = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-white border border-orange-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="phone" className="block text-sm font-semibold mb-2">Phone Number (Optional)</label>
+            <label htmlFor="phone" className="block text-sm text-white font-semibold mb-2">Phone Number (Optional)</label>
             <input
               type="tel"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-white border border-orange-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="subject" className="block text-sm font-semibold mb-2">Subject</label>
+            <label htmlFor="subject" className="block text-sm text-white font-semibold mb-2">Subject</label>
             <select
               id="subject"
               name="subject"
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-white border border-orange-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="">Select Subject</option>
               <option value="general">General Inquiry</option>
@@ -84,7 +84,7 @@ const ContactUs = () => {
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-semibold mb-2">Your Message</label>
+            <label htmlFor="message" className="block text-sm text-white font-semibold mb-2">Your Message</label>
             <textarea
               id="message"
               name="message"
@@ -92,30 +92,30 @@ const ContactUs = () => {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-white border border-orange-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full py-3 border-2 border-white bg-orange-950 hover:bg-orange-800 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             Submit
           </button>
         </form>
 
         <div className="flex flex-wrap justify-around mt-12 gap-8">
-          <div className="w-full sm:w-72 p-6 bg-blue-900 bg-opacity-70 rounded-lg shadow-xl">
+          <div className="w-full sm:w-72 p-6  bg-gradient-to-r from-orange-800 to-orange-950 bg-opacity-70 rounded-lg shadow-xl">
             <h3 className="text-2xl font-bold text-white mb-4">Benefit 1</h3>
             <p className="text-white">Experience seamless customer support at all times ensuring your needs are met.</p>
           </div>
 
-          <div className="w-full sm:w-72 p-6 bg-blue-900 bg-opacity-70 rounded-lg shadow-xl">
+          <div className="w-full sm:w-72 p-6  bg-gradient-to-r from-orange-800 to-orange-950 bg-opacity-70 rounded-lg shadow-xl">
             <h3 className="text-2xl font-bold text-white mb-4">Benefit 2</h3>
             <p className="text-white">Get fast and reliable services tailored to your unique business needs.</p>
           </div>
 
-          <div className="w-full sm:w-72 p-6 bg-blue-900 bg-opacity-70 rounded-lg shadow-xl">
+          <div className="w-full sm:w-72 p-6  bg-gradient-to-r from-orange-800 to-orange-950 bg-opacity-70 rounded-lg shadow-xl">
             <h3 className="text-2xl font-bold text-white mb-4">Benefit 3</h3>
             <p className="text-white">Enjoy the benefits of innovative solutions that help you stay ahead in the market.</p>
           </div>
