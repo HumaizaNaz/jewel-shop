@@ -6,22 +6,22 @@ import React, { useState } from "react";
 import { FaTachometerAlt, FaBox, FaCog, FaUserCircle, FaBars, FaFilter, FaSearch } from "react-icons/fa"; // React Icons for sidebar
 
 const products = [
-  { id: 1, name: "Ultra Watch", price: 100, imageUrl: "/watches1.jpg" },
-  { id: 2, name: "Ultra S9 Watch", price: 150, imageUrl: "/watches2.jpg" },
-  { id: 3, name: "X9 Ultra Watch", price: 200, imageUrl: "/watches3.jpg" },
-  { id: 4, name: "S20 Plus Watch", price: 250, imageUrl: "/watches4.jpg" },
-  { id: 5, name: "Ultra 7 Strap Watch", price: 300, imageUrl: "/watches5.jpg" },
-  { id: 6, name: "Ultra S12 Watch", price: 150, imageUrl: "/watches6.jpg" },
-  { id: 7, name: "X100 Ultra Watch", price: 500, imageUrl: "/watches7.jpg" },
-  { id: 8, name: "S20 Ultra Watch", price: 350, imageUrl: "/watches8.jpg" },
-  { id: 9, name: "Limited Edition Gold Watch", price: 300, imageUrl: "/watches9.jpg" },
-  { id: 10, name: "Rare Diamond Watch", price: 800, imageUrl: "/watches10.jpg" },
-  { id: 11, name: "Ultra 7 Strap Watch", price: 1000, imageUrl: "/watches11.jpg" },
-  { id: 12, name: "Ultra S12 Watch", price: 1000, imageUrl: "/watches12.jpg" },
-  { id: 13, name: "X100 Ultra Watch", price: 400, imageUrl: "/watches13.jpg" },
-  { id: 14, name: "S20 Ultra Watch", price: 150, imageUrl: "/watches14.jpg" },
-  { id: 15, name: "Limited Edition Gold Watch", price: 460, imageUrl: "/watches15.jpg" },
-  { id: 16, name: "Rare Diamond Watch", price: 1000, imageUrl: "/watches16.jpg" },
+  { id: 1, name: 'Raj Ratan Necklace', price: 100, imageUrl: '/jw-1.jpg' }, 
+  { id: 2, name: 'Golden Halo Necklace', price: 150, imageUrl: '/jw-2.jpg' },
+  { id: 3, name: 'Sapphire Glow Necklace', price: 200, imageUrl: '/jw-3.jpg' },
+  { id: 4, name: 'Golden Royal Bangles', price: 250, imageUrl: '/jw-4.jpg' }, 
+  { id: 5, name: 'Golden Princess Bridal Set', price: 300, imageUrl: '/jw-5.jpg' }, 
+  { id: 6, name: 'Majestic  Bridal  Choker', price: 350, imageUrl: '/jw-6.jpg' }, 
+  { id: 7, name: 'Sapphire Bridal Necklace', price: 200, imageUrl: '/jw-7.jpg' }, 
+  { id: 8, name: 'Bridal Empress Bangles', price: 300, imageUrl: '/jw-8.jpg' }, 
+  { id: 9, name: "Limited Edition Gold Watch", price: 300, imageUrl: "/jw-9.jpg" },
+  { id: 10, name: "Rare Diamond Watch", price: 800, imageUrl: "/jw-10.jpg" },
+  { id: 11, name: "Ultra 7 Strap Watch", price: 1000, imageUrl: "/jw-11.jpg" },
+  { id: 12, name: "Ultra S12 Watch", price: 1000, imageUrl: "/jw-12.jpg" },
+  { id: 13, name: "X100 Ultra Watch", price: 400, imageUrl: "/jw-13.jpg" },
+  { id: 14, name: "S20 Ultra Watch", price: 150, imageUrl: "/jw-14.jpg" },
+  { id: 15, name: "Limited Edition Gold Watch", price: 460, imageUrl: "/jw-15.jpg" },
+  { id: 16, name: "Rare Diamond Watch", price: 1000, imageUrl: "/jw-16.jpg" },
 ];
 
 const AllProducts = () => {
@@ -45,7 +45,7 @@ const AllProducts = () => {
       <div
         className={`${
           sidebarOpen ? "w-64" : "w-0"
-        } bg-gray-800 text-white p-6 space-y-6 transition-all duration-300 overflow-hidden md:w-64 sm:w-64 hidden md:hidden lg:block`} // Hidden on small screens
+        } bg-orange-950 text-white p-6 space-y-6 transition-all duration-300 overflow-hidden md:w-64 sm:w-64 hidden md:hidden lg:block`} // Hidden on small screens
       >
         <h3 className="text-2xl font-semibold mb-4">Dashboard</h3>
         <ul className="space-y-4">
@@ -59,48 +59,48 @@ const AllProducts = () => {
   </li>
   <li>
     <Link href="/products" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaBox />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaBox className='text-orange-200'/>
         <span>All Products</span>
       </div>
     </Link>
   </li>
   <li>
     <Link href="/orders" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaBox />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaBox className='text-orange-200'/>
         <span>Orders</span>
       </div>
     </Link>
   </li>
   <li>
     <Link href="/analytics" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaCog />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaCog className='text-orange-200' />
         <span>Analytics</span>
       </div>
     </Link>
   </li>
   <li>
     <Link href="/help" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaCog />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaCog className='text-orange-200'/>
         <span>Help</span>
       </div>
     </Link>
   </li>
   <li>
     <Link href="/reviews" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaUserCircle />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaUserCircle className='text-orange-200' />
         <span>Reviews</span>
       </div>
     </Link>
   </li>
   <li>
     <Link href="/faq" passHref>
-      <div className="flex items-center space-x-2 text-lg hover:text-blue-400">
-        <FaUserCircle />
+      <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
+        <FaUserCircle className='text-orange-200'/>
         <span>FAQ</span>
       </div>
     </Link>
@@ -120,7 +120,7 @@ const AllProducts = () => {
       <div className="w-full p-10">
         {/* Heading */}
         <motion.h2
-          className="text-4xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
+          className="text-4xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-800 to-orange-950"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
@@ -154,7 +154,7 @@ const AllProducts = () => {
               step="10"
               value={priceRange[1]}
               onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-              className="w-32"
+              className="w-32 "
             />
             <span className="ml-2 text-gray-700">${priceRange[1]}</span>
           </div>
@@ -192,10 +192,10 @@ const AllProducts = () => {
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-900">{product.name}</h3>
-                <p className="text-lg font-medium text-blue-600 mb-4">${product.price}</p>
+                <h3 className="text-xl font-semibold text-orange-950">{product.name}</h3>
+                <p className="text-lg font-medium text-orange-600 mb-4">${product.price}</p>
                 <Link href={`/product/${product.id}`} passHref>
-                  <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 rounded-lg shadow-md hover:bg-blue-500 transition-all duration-300">
+                  <button className="w-full bg-gradient-to-r from-orange-800 to-orange-950 text-white py-2 rounded-lg shadow-md hover:bg-blue-500 transition-all duration-300">
                     View Details
                   </button>
                 </Link>
