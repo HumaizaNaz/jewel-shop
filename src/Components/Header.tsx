@@ -12,13 +12,13 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gray-800 text-white shadow-md sticky top-0 z-50">
+    <header className="bg-gradient-to-br from-red-900 via-orange-950 to-orange-900 text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
         <div className="text-2xl font-bold">
           <Link href="/">
             <li className="flex items-center space-x-2">
-              <FaStore className="text-3xl text-blue-500" />
-              <span>Cruse Store</span>
+              <FaStore className="text-3xl text-orange-400" />
+              <span>Gold Aura</span> {/* Updated name */}
             </li>
           </Link>
         </div>
@@ -34,25 +34,25 @@ export default function Header() {
         <nav className="hidden md:flex space-x-6 items-center">
           <Link href="/">
             <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
-              <FaHome />
+              <FaHome className='text-orange-200'/>
               <span>Home</span>
             </li>
           </Link>
           <Link href="/Shop">
             <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
-              <FaStore />
+              <FaStore className='text-orange-200' />
               <span>Shop</span>
             </li>
           </Link>
           <Link href="/About">
             <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
-              <FaInfoCircle />
+              <FaInfoCircle className='text-orange-200'/>
               <span>About</span>
             </li>
           </Link>
           <Link href="/Contact">
             <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
-              <FaPhone />
+              <FaPhone className='text-orange-200' />
               <span>Contact</span>
             </li>
           </Link>
@@ -60,7 +60,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`absolute top-0 left-0 w-full bg-gray-800 text-white shadow-lg transform ${
+        className={`absolute top-0 left-0 w-full bg-gray-800 text-orange-200 shadow-lg transform ${
           isMenuOpen ? 'translate-y-12' : '-translate-y-full'
         } transition-transform duration-500 ease-in-out md:hidden`} 
       >
@@ -70,7 +70,7 @@ export default function Header() {
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
             >
-              <FaHome />
+              <FaHome className='text-orange-200'/>
               <span>Home</span>
             </li>
           </Link>
@@ -79,7 +79,7 @@ export default function Header() {
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
             >
-              <FaStore />
+              <FaStore className='text-orange-200'/>
               <span>Shop</span>
             </li>
           </Link>
@@ -88,7 +88,7 @@ export default function Header() {
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
             >
-              <FaInfoCircle />
+              <FaInfoCircle className='text-orange-200' />
               <span>About</span>
             </li>
           </Link>
@@ -97,7 +97,7 @@ export default function Header() {
               onClick={toggleMenu}
               className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
             >
-              <FaPhone />
+              <FaPhone className='text-orange-200'/>
               <span>Contact</span>
             </li>
           </Link>

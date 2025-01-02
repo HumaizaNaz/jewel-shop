@@ -11,14 +11,14 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             Discover Luxury Like Never Before
           </h1>
-          <p className="text-lg md:text-xl mb-8">
+          <p className="text-lg md:text-xl mb-8 text-orange-200">
             Explore our exclusive collection of premium products tailored to your taste.
           </p>
   
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link
               href="/Shop"
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
+              className="px-8 py-4 bg-gradient-to-r from-orange-800 to-orange-950 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
             >
               Shop Now
             </Link>
