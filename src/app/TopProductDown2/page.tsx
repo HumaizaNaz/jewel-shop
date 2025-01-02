@@ -7,10 +7,10 @@ export default function VipSection() {
   return (
     <section className="py-20 px-6 md:px-12">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
+        <h2 className="text-3xl md:text-4xl text-orange-950 font-extrabold leading-tight mb-4">
           VIP Benefits Await You
         </h2>
-        <p className="text-lg md:text-xl mb-8">
+        <p className="text-lg md:text-xl text-orange-800 mb-8">
           Unlock exclusive perks and enjoy personalized VIP experiences designed just for you.
         </p>
       </div>

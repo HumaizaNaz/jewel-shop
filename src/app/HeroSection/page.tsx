@@ -9,16 +9,16 @@ export default function HeroSection() {
   
         <div className="relative z-10 text-center px-6 md:px-12">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Discover Luxury Like Never Before
+          Discover Timeless Elegance in Every Piece
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-orange-200">
-            Explore our exclusive collection of premium products tailored to your taste.
+          <p className="text-lg md:text-xl mb-8 text-white">
+          Explore our exclusive collection of handcrafted gold jewelry, designed to match your refined taste.
           </p>
   
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link
               href="/Shop"
-              className="px-8 py-4 bg-gradient-to-r from-orange-800 to-orange-950 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
+              className="px-8 py-4 border-2 border-white bg-gradient-to-r from-orange-800 to-orange-950 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
             >
               Shop Now
             </Link>
