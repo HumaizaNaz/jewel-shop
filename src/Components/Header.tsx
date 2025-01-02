@@ -33,25 +33,25 @@ export default function Header() {
 
         <nav className="hidden md:flex space-x-6 items-center">
           <Link href="/">
-            <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
+            <li className="flex items-center space-x-2 hover:text-orange-400 transition-colors duration-300">
               <FaHome className='text-orange-200'/>
               <span>Home</span>
             </li>
           </Link>
           <Link href="/Shop">
-            <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
+            <li className="flex items-center space-x-2 hover:text-orange-400 transition-colors duration-300">
               <FaStore className='text-orange-200' />
               <span>Shop</span>
             </li>
           </Link>
           <Link href="/About">
-            <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
+            <li className="flex items-center space-x-2 hover:text-orange-400 transition-colors duration-300">
               <FaInfoCircle className='text-orange-200'/>
               <span>About</span>
             </li>
           </Link>
           <Link href="/Contact">
-            <li className="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
+            <li className="flex items-center space-x-2 hover:text-orange-400 transition-colors duration-300">
               <FaPhone className='text-orange-200' />
               <span>Contact</span>
             </li>
@@ -60,7 +60,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`absolute top-0 left-0 w-full bg-gray-800 text-orange-200 shadow-lg transform ${
+        className={`absolute top-0 left-0 w-full bg-gradient-to-br from-red-900 via-orange-950 to-orange-900  text-white shadow-lg transform ${
           isMenuOpen ? 'translate-y-12' : '-translate-y-full'
         } transition-transform duration-500 ease-in-out md:hidden`} 
       >
@@ -68,7 +68,7 @@ export default function Header() {
           <Link href="/">
             <li
               onClick={toggleMenu}
-              className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
+              className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
             >
               <FaHome className='text-orange-200'/>
               <span>Home</span>
@@ -77,7 +77,7 @@ export default function Header() {
           <Link href="/Shop">
             <li
               onClick={toggleMenu}
-              className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
+              className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
             >
               <FaStore className='text-orange-200'/>
               <span>Shop</span>
@@ -86,7 +86,7 @@ export default function Header() {
           <Link href="/About">
             <li
               onClick={toggleMenu}
-              className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
+              className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
             >
               <FaInfoCircle className='text-orange-200' />
               <span>About</span>
@@ -95,7 +95,7 @@ export default function Header() {
           <Link href="/Contact">
             <li
               onClick={toggleMenu}
-              className="flex items-center space-x-2 text-lg hover:text-gray-400 transition-colors duration-300"
+              className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
             >
               <FaPhone className='text-orange-200'/>
               <span>Contact</span>
