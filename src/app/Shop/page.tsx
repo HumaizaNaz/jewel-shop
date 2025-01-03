@@ -67,7 +67,7 @@ const AllProducts = () => {
     </Link>
   </li>
   <li>
-    <Link href="/orders" passHref>
+    <Link href="/checkout" passHref>
       <div className="flex items-center space-x-2 text-lg hover:text-orange-400">
         <FaBox className='text-orange-200'/>
         <span>Orders</span>

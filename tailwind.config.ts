@@ -14,6 +14,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },  gold: {
+        100: '#FFF5C2',
+        200: '#FFE09C',
+        300: '#FFD700', // Primary Gold Color
+        400: '#FFBF00',
+        500: '#E6A700',
       },
     },
   },
