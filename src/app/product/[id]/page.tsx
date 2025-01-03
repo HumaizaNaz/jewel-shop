@@ -149,7 +149,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
 
       <button
         onClick={() => handleAddToCart(product)}
-        className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+        className="bg-gradient-to-r from-orange-800 to-orange-950 text-white py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
       >
         Add to Cart
       </button>
@@ -203,7 +203,7 @@ const RelatedProduct = ({ relatedProduct, handleRelatedProductClick, loading }: 
       <p className="text-sm text-gray-600">${relatedProduct.price}</p>
       <button
         onClick={() => handleRelatedProductClick(relatedProduct)}
-        className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300"
+        className="mt-2 bg-gradient-to-r from-orange-800 to-orange-950 text-white py-2 px-4 rounded-lg hover:bg-orange-800 transition-all duration-300"
         disabled={loading}
       >
         {loading ? 'Adding...' : 'Add to Cart'}

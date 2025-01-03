@@ -83,12 +83,13 @@ const FAQ = () => {
         </div>
 
         {/* Contact Us Button */}
-        <div className="flex justify-center mt-8">
+        <div className="flex flex-col items-center mt-8 space-y-4">
+  <h4 className="text-blue-500 underline">For More Details,</h4>
   <Link
     href="/contact"
-    className="bg-blue-400 text-white px-6 py-2 rounded-full font-semibold shadow-md transition-transform transform hover:scale-105"
+    className="bg-gradient-to-r from-orange-800 to-orange-950 text-white px-6 py-2 rounded-full font-semibold shadow-md transition-transform transform hover:scale-105"
   >
-    For More Details, Contact Us
+    Contact Us
   </Link>
 </div>
 
