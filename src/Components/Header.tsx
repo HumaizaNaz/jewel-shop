@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaBars, FaTimes, FaHome, FaStore, FaInfoCircle, FaPhone } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaStore, FaInfoCircle, FaPhone,FaCartPlus } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Header() {
@@ -56,6 +56,15 @@ export default function Header() {
               <span>Contact</span>
             </li>
           </Link>
+            <Link href="/cart">
+      <li
+        onClick={toggleMenu}
+        className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
+      >
+        <FaCartPlus className="text-orange-200" />
+        <span>Cart</span>
+      </li>
+    </Link>
         </nav>
       </div>
 
@@ -101,6 +110,15 @@ export default function Header() {
               <span>Contact</span>
             </li>
           </Link>
+          <Link href="/cart">
+      <li
+        onClick={toggleMenu}
+        className="flex items-center space-x-2 text-lg hover:text-orange-400 transition-colors duration-300"
+      >
+        <FaCartPlus className="text-orange-200" />
+        <span>Cart</span>
+      </li>
+    </Link>
         </nav>
       </div>
     </header>

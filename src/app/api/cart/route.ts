@@ -3,9 +3,12 @@ import { NextResponse } from 'next/server';
 interface Product {
   productId: number;
   quantity: number;
+  name: string;
+  price: number;
+  imageUrl: string;
 }
 
-let cart: Product[] = []; 
+let cart: Product[] = [];
 
 const API_SECRET_KEY = process.env.API_SECRET_KEY;
 
@@ -26,8 +29,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { productId, quantity }: Product = await request.json();
-  const product: Product = { productId, quantity };
+  const { productId, quantity, name, price, imageUrl }: Product = await request.json();
+  const product: Product = { productId, quantity, name, price, imageUrl };
   cart.push(product);
   return NextResponse.json(cart);
 }

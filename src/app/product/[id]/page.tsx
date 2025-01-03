@@ -1,30 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
-
-import Image from 'next/image';
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client"
+import { useState, useEffect, memo } from 'react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import Image from 'next/image';
+import posts from "../../../product-detail/data.json";
+import Link from 'next/link';
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  description: string;
+  longDescription: string;
+  sizes: string[];
+  stock: number;
+  reviews: { rating: number; text: string }[];
+  category?: string;
+}
 
 const ProductDetail = ({ params }: { params: { id: string } }) => {
   const { id } = params;
 
-  const product = {
-    id,
-    name: `Smart Watch ${id}`,
-    price: 100,
-    imageUrl: `/watches${id}.jpg`,
-    description:
-      'This is a detailed description of the product. It is made from high-quality materials, ensuring durability and comfort. Choose the perfect size and quantity to fit your needs. Great for casual wear or special occasions.',
-    longDescription:
-      'This product comes with a 1-year warranty and free shipping on orders over ₹5000. Ideal for daily use, the fabric is breathable and soft, perfect for all seasons.',
-    sizes: ['S', 'M', 'L', 'XL'],
-    stock: 50,
-    reviews: [
-      { rating: 5, text: 'Amazing quality! Highly recommend.' },
-      { rating: 4, text: 'Very good, but I wish there were more size options.' },
-      { rating: 3, text: 'Decent, but not as expected.' },
-    ],
-  };
+  const product = posts.find((post) => post.id.toString() === id);
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(1);
@@ -32,11 +34,13 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
   const [progress, setProgress] = useState<number>(100);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  const [loadingRelated, setLoadingRelated] = useState<{ [key: number]: boolean }>({});
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
 
   const router = useRouter();
 
-  const handleAddToCart = (item: any) => {
-    if (!item.size && !selectedSize) {
+  const handleAddToCart = (item: Product) => {
+    if (!item.sizes.length && !selectedSize) {
       setError('Please select a size!');
       return;
     }
@@ -49,9 +53,10 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
     const cartItem = {
       productId: item.id,
       quantity,
-      size: item.size || selectedSize,
+      size: item.sizes.length ? item.sizes : selectedSize,
       name: item.name,
       price: item.price,
+      imageUrl: item.imageUrl,  
     };
 
     const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -77,18 +82,24 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
     }, 300);
   };
 
-  const handleRelatedProductClick = (relatedProduct: any) => {
-    setLoading(true); 
-    setMessage('Successfully added to cart!'); 
-    
-    setTimeout(() => {
-      handleAddToCart(relatedProduct); 
-    }, 500); 
+  const handleRelatedProductClick = (relatedProduct: Product) => {
+    setLoadingRelated((prev) => ({ ...prev, [relatedProduct.id]: true }));
+    handleAddToCart(relatedProduct);
+    setLoadingRelated((prev) => ({ ...prev, [relatedProduct.id]: false }));
   };
 
+  useEffect(() => {
+    const sortedRelatedProducts = posts
+      .filter((relatedProduct) =>
+        relatedProduct.category === product.category && relatedProduct.id !== product.id
+      )
+      .slice(0, 4);  
+
+    setRelatedProducts(sortedRelatedProducts);  
+  }, [product.category, product.id]);  
   return (
     <div className="p-8 flex flex-col items-center max-w-5xl mx-auto">
-      <h1 className="text-4xl font-bold text-center mb-6 text-gray-900">{product.name}</h1>
+      <h1 className="text-4xl font-bold text-center mb-6 text-orange-950">{product.name}</h1>
 
       <Image
         src={product.imageUrl}
@@ -98,18 +109,18 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
         className="rounded-lg shadow-xl mb-6"
       />
 
-      <p className="text-2xl font-semibold text-gray-700 mb-4">${product.price}</p>
-      <p className="text-lg text-gray-600 mb-6 leading-relaxed">{product.description}</p>
+      <p className="text-2xl font-semibold text-orange-500 mb-4">${product.price}</p>
+      <p className="text-lg text-slate-600 mb-6 leading-relaxed">{product.description}</p>
 
-      <div className="w-1/2 mb-6">
-        <label htmlFor="size" className="text-lg font-semibold text-gray-800">
+      <div className="w-full sm:w-1/2 mb-6">
+        <label htmlFor="size" className="text-lg font-semibold text-orange-800">
           Select Size:
         </label>
         <select
           id="size"
           value={selectedSize}
           onChange={(e) => setSelectedSize(e.target.value)}
-          className="mt-2 p-3 border-2 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-blue-500"
+          className="mt-2 p-3 border-2 border-gray-300 rounded-lg w-full focus:ring-2 focus:ring-orange-500"
         >
           <option value="">Choose Size</option>
           {product.sizes.map((size) => (
@@ -121,7 +132,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </div>
 
-      <div className="w-1/2 mb-6">
+      <div className="w-full sm:w-1/2 mb-6">
         <label htmlFor="quantity" className="text-lg font-semibold text-gray-800">
           Quantity:
         </label>
@@ -159,54 +170,50 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
         </div>
       )}
 
-      <div className="mt-8 w-full max-w-2xl">
-        <h3 className="text-xl font-semibold mb-4">Customer Reviews</h3>
-        {product.reviews.map((review, index) => (
-          <div key={index} className="mb-4">
-            <div className="flex items-center">
-              <span className="text-yellow-500">{"★".repeat(review.rating)}</span>
-              <p className="text-sm text-gray-600 ml-2">{review.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
       <div className="mt-8 w-full max-w-3xl">
         <h3 className="text-xl font-semibold mb-4">Related Products</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {[...Array(4)].map((_, index) => {
-            const relatedProduct = {
-              id: index + 1,
-              name: `Smart Watch ${index + 1}`, 
-              price: 100 + index * 20,
-              imageUrl: `/watches${index + 1}.jpg`,
-              stock: 10,
-              size: 'M',
-            };
-            return (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
-                <Image
-                  src={relatedProduct.imageUrl}
-                  alt={relatedProduct.name}
-                  height={200}
-                  width={200}
-                  className="w-full h-40 object-cover rounded-lg mb-4"
-                />
-                <p className="text-lg font-semibold text-gray-700">{relatedProduct.name}</p>
-                <p className="text-sm text-gray-600">${relatedProduct.price}</p>
-                <button
-                  onClick={() => handleRelatedProductClick(relatedProduct)}
-                  className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            );
-          })}
+          {relatedProducts.map((relatedProduct) => (
+            <MemoizedRelatedProduct
+              key={relatedProduct.id}
+              relatedProduct={relatedProduct}
+              handleRelatedProductClick={handleRelatedProductClick}
+              loading={loadingRelated[relatedProduct.id]}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 };
+
+const RelatedProduct = ({ relatedProduct, handleRelatedProductClick, loading }: any) => {
+  return (
+    <div className="bg-white p-4 rounded-lg shadow-lg">
+      <Link href={`/product/${relatedProduct.id}`}>
+        <Image
+          src={relatedProduct.imageUrl}
+          alt={relatedProduct.name}
+          height={200}
+          width={200}
+          className="w-full h-40 object-cover rounded-lg mb-4"
+        />
+      </Link>
+      <p className="text-lg font-semibold text-gray-700">{relatedProduct.name}</p>
+      <p className="text-sm text-gray-600">${relatedProduct.price}</p>
+      <button
+        onClick={() => handleRelatedProductClick(relatedProduct)}
+        className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300"
+        disabled={loading}
+      >
+        {loading ? 'Adding...' : 'Add to Cart'}
+      </button>
+      
+    </div>
+  );
+};
+
+// Memoizing the related product component to prevent unnecessary re-renders
+const MemoizedRelatedProduct = memo(RelatedProduct);
 
 export default ProductDetail;
